@@ -7,17 +7,30 @@ function findAndReplace(string, target, replacement) {
   }
   return string;
 }
-const fetchCals = ingredient => {
+const fetchHints = ingredient => {
   var ing = findAndReplace(ingredient, " ", "%20");
     const url =  `${apiURL}${ing}${apiKey}`;
     fetch(url)
     .then(response => response.json())
     .then(ingrData => {
-        console.log(ingrData);
-        // addToList(ingrData)
+          ingrData.hints.map(e => {
+          inputHints = e
+          console.log(inputHints)
+           // addToList(inputHints)
+        })
+;
+       
     });
 };
 
+const fetchCals = hint => {
+hint.nutrients.ENERC_KCAL
+          console.log(inputHints)
+           // addToList(inputHints)
+        }
 
+let searchResults = fetchHints ("Apple-Crisp Baked Apples")
 
-fetchCals("red apple")
+let ingrCals = fetchCals(searchResults)
+
+// fetchHints ("Apple-Crisp Baked Apples")
