@@ -24,3 +24,14 @@ CREATE TABLE userInfo (
 
  INSERT INTO userInfo (id, name, date, weight, height, gender, BMI, calories_needed, calories_eaten) 
                VALUES (null, "Carlos", null, 75, 60, "male", 20, 2500, 2000);
+
+
+ /*
+*  the date can be rendered as a proper date using the following function:
+*  function formatDate(date) {
+*  var datestamp = new Date(date);
+*  return datestamp.toDateString()
+* }
+* example when mapping---> formatDate(e.date)
+*
+*/
