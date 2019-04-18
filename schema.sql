@@ -7,13 +7,13 @@ USE calories;
 CREATE TABLE userInfo (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
-  date DATETIME DEFAULT CURRENT_TIMESTAMP,
-  weight SMALLINT NOT NULL,
-  height VARCHAR(20) NOT NULL,
-  gender ENUM("male", "female")
-  BMI SMALLINT NOT NULL,
-  calories_needed SMALLINT NOT NULL,
-  calories_eaten SMALLINT 
+  date DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  weight INT NOT NULL,
+  height INT NOT NULL,
+  gender ENUM("male", "female"),
+  BMI INT NOT NULL,
+  calories_needed INT NOT NULL,
+  calories_eaten INT NOT NULL
 );
 
 
@@ -22,4 +22,16 @@ CREATE TABLE userInfo (
  *  to create the database and the tables.*/
 
 
- INSERT INTO userInfo (name, weight, height, gender, BMI, calories_needed, calories_eaten) VALUES ("Carlos", 75, "5ft / 6inches","male", 2,500, 2,000);
+ INSERT INTO userInfo (id, name, weight, height, gender, BMI, calories_needed, calories_eaten) 
+               VALUES (null, "Carlos", 75, 60, "male", 20, 2500, 2000);
+
+
+ /*
+*  the date can be rendered as a proper date using the following function:
+*  function formatDate(date) {
+*  var datestamp = new Date(date);
+*  return datestamp.toDateString()
+* }
+* example when mapping---> formatDate(e.date)
+*
+*/
