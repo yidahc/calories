@@ -6,12 +6,50 @@ const mysql = require('mysql2');
 const config = {
   host: 'localhost',
   user: 'root',
-  password: 'password',
-  database: 'yourDB',
+  password: 'Holacode',
+  database: 'calories',
 };
 
 const connection = mysql.createConnection(config);
 
+connection.connect(err => {
+  if (err) {
+    console.error('error connecting: ' + err.stack);
+    return;
+  }
+});
+
+
+exports.getMyData = cb => {
+  connection.query('SELECT * from userInfo', (error, results) => {
+    if (error) {
+      throw error;
+    } else {
+      cb(results);
+    }
+  });
+};
+
+exports.postMyData = (name, weight, height, gender, cb) => {
+  connection.query(
+    'INSERT INTO userInfo (name, weight, height, gender,) VALUES (?, ?, ?, ?);',
+    [name, weight, height, gender],
+    (error, results) => {
+      if (error) {
+        throw error;
+      } else {
+        cb(results);
+      }
+    }
+  );
+};
+
+
+
+
+
+
+/*
 //Example mysql query using Promises
 const sampleQuery = function() {
   return new Promise((resolve, reject) => {
@@ -24,6 +62,9 @@ const sampleQuery = function() {
   });
 };
 
+
 module.exports = {
   sampleQuery,
 };
+
+*/
