@@ -85,7 +85,7 @@ class App extends Component {
 		  <div>
 		    <Switch>
 		    <Route exact path="/" component={Home}/>
-		    <Route exact path="/BMI" component={BMI}/>
+		    <Route exact path="/BMI" render={(props) => <BMI {...props} isAuthed={true} />}/>  
 		    <Route exact path="/TotalCalories" component={TotalCalories}/>
 		    </Switch>
     	  </div>

@@ -1,3 +1,4 @@
+/*
 const apiURL = "https://api.edamam.com/api/food-database/parser?ingr=";
 const apiKey = "&app_id=6faf9cc7&app_key=5c9b29569582527e3c87130f130cb58d";
 
@@ -34,3 +35,4 @@ let searchResults = fetchHints ("Apple-Crisp Baked Apples")
 let ingrCals = fetchCals(searchResults)
 
 // fetchHints ("Apple-Crisp Baked Apples")
+*/
