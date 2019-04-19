@@ -1,3 +1,4 @@
+/*
 const apiURL = "https://api.edamam.com/api/food-database/parser?ingr=";
 const apiKey = "&app_id=6faf9cc7&app_key=5c9b29569582527e3c87130f130cb58d";
 
@@ -7,6 +8,12 @@ function findAndReplace(string, target, replacement) {
   }
   return string;
 }
+
+const addToList = hint => {
+    console.log("THIS IS THE RESULT" , hint.food.nutrients.ENERC_KCAL)
+  }
+
+
 const fetchHints = ingredient => {
   var ing = findAndReplace(ingredient, " ", "%20");
     const url =  `${apiURL}${ing}${apiKey}`;
@@ -16,13 +23,12 @@ const fetchHints = ingredient => {
           ingrData.hints.map(e => {
           inputHints = e
           console.log(inputHints)
-           // addToList(inputHints)
-        })
-;
-       
+         addToList(inputHints)
+        });
     });
 };
 
+/*
 const fetchCals = hint => {
 hint.nutrients.ENERC_KCAL
           console.log(inputHints)
@@ -30,7 +36,8 @@ hint.nutrients.ENERC_KCAL
         }
 
 let searchResults = fetchHints ("Apple-Crisp Baked Apples")
+*/
 
-let ingrCals = fetchCals(searchResults)
+// let ingrCals = fetchCals(searchResults)
 
 // fetchHints ("Apple-Crisp Baked Apples")
