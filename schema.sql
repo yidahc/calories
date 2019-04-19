@@ -9,9 +9,9 @@ CREATE TABLE userInfo (
   name VARCHAR(50) NOT NULL,
   date DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
   weight INT NOT NULL,
-  height INT NOT NULL,
+  height FLOAT(3, 2) NOT NULL,
   gender ENUM("male", "female"),
-  BMI FLOAT(3,1) DEFAULT 20.5 NOT NULL,
+  BMI FLOAT(3, 1) DEFAULT 20.5 NOT NULL,
   calories_needed INT DEFAULT 2500 NOT NULL,
   calories_eaten INT 
 );
@@ -25,8 +25,8 @@ CREATE TABLE userInfo (
  */
 
 
- INSERT INTO userInfo (name, weight, height, gender) 
-               VALUES ("Carlos", 75, 60, "male");
+ INSERT INTO userInfo (name, weight, height, gender, BMI) 
+               VALUES ("Carlos", 1.7, 1.6, "male", 32.3);
 
 
  /*
