@@ -23,10 +23,13 @@ CREATE TABLE userInfo (
 
 
  INSERT INTO userInfo (id, name, weight, height, gender, BMI, calories_needed, calories_eaten) 
-               VALUES (null, "Carlos", 75, 60, "male", 20, 2500, 2000);
+               VALUES (null, "Carlos", 120, 60, "male", 20, 2500, 2000);
+
 
 
  /*
+* weight is in lbs and height is in inches
+*
 *  the date can be rendered as a proper date using the following function:
 *  function formatDate(date) {
 *  var datestamp = new Date(date);
