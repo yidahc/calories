@@ -25,6 +25,7 @@ module.exports.getMyData = cb => {
     if (error) {
       throw error;
     } else {
+      console.log("this is from mysql query", results)
       cb(results);
     }
   });
@@ -32,7 +33,7 @@ module.exports.getMyData = cb => {
 
 module.exports.postMyData = function (name, weight, height, gender, cb) {
   connection.query(
-    'INSERT INTO userInfo (name, weight, height, gender,) VALUES (?, ?, ?, ?);',
+    'INSERT INTO userInfo (name, weight, height, gender) VALUES (?, ?, ?, ?);',
     [name, weight, height, gender],
     (error, results) => {
       if (error) {
@@ -41,7 +42,7 @@ module.exports.postMyData = function (name, weight, height, gender, cb) {
         cb(results);
       }
     }
-  );
+  )
 };
 
 

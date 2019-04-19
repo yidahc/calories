@@ -29,12 +29,12 @@ class BMI extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { name, weight, height, gender, } = this.state;
+    const { name, weight, height, gender } = this.state;
     this.props.postData('/userInfo', {
-      name,
-      weight,
-      height,
-      gender,
+      name: name,
+      weight: weight,
+      height: height,
+      gender: gender,
     });
 
     this.setState({
@@ -48,7 +48,7 @@ class BMI extends Component {
 
 render() {
     
-    const { name, weight, height, gender, } = this.state;
+    const { name, weight, height, gender } = this.state;
 
     return (
       <div>

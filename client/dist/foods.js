@@ -34,10 +34,10 @@ hint.nutrients.ENERC_KCAL
           console.log(inputHints)
            // addToList(inputHints)
         }
-*/
+
 let searchResults = fetchHints ("Apple-Crisp Baked Apples")
+*/
 
 // let ingrCals = fetchCals(searchResults)
 
 // fetchHints ("Apple-Crisp Baked Apples")
-*/

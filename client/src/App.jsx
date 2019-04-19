@@ -54,7 +54,7 @@ class App extends Component {
       },
       body: JSON.stringify(data),
     })
-      .then(response => response.json())
+    //  .then(response => response.json())
       .then(() => this.getData(url))
       .catch(err => console.error(err));
   }
@@ -85,7 +85,7 @@ class App extends Component {
 		  <div>
 		    <Switch>
 		    <Route exact path="/" component={Home}/>
-		    <Route exact path="/BMI" render={(props) => <BMI {...props} isAuthed={true} />}/>  
+		    <Route path="/BMI" render={(props) => <BMI {...props} postData={this.postData} />}/>  
 		    <Route exact path="/TotalCalories" component={TotalCalories}/>
 		    </Switch>
     	  </div>
