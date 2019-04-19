@@ -6,7 +6,7 @@ const mysql = require('mysql2');
 const config = {
   host: 'localhost',
   user: 'root',
-  password: 'Holacode',
+  password: '170482',
   database: 'calories',
 };
 
@@ -20,7 +20,7 @@ connection.connect(err => {
 });
 
 
-exports.getMyData = cb => {
+module.exports.getMyData = cb => {
   connection.query('SELECT * from userInfo', (error, results) => {
     if (error) {
       throw error;
@@ -30,13 +30,13 @@ exports.getMyData = cb => {
   });
 };
 
-exports.postMyData = (name, weight, height, gender, cb) => {
+module.exports.postMyData = function (name, weight, height, gender, cb) {
   connection.query(
     'INSERT INTO userInfo (name, weight, height, gender,) VALUES (?, ?, ?, ?);',
     [name, weight, height, gender],
     (error, results) => {
       if (error) {
-        throw error;
+        cb (error);
       } else {
         cb(results);
       }
