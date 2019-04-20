@@ -49,7 +49,7 @@ class BMI extends Component {
 render() {
     
     const { name, weight, height, gender } = this.state;
-
+    const { postData } = this.props;
     return (
       <div>
         <div>
