@@ -11,8 +11,8 @@ CREATE TABLE userInfo (
   weight INT NOT NULL,
   height FLOAT(3, 2) NOT NULL,
   gender ENUM("male", "female"),
-  BMI FLOAT(3, 1) DEFAULT 20.5 NOT NULL,
-  calories_needed INT DEFAULT 2500 NOT NULL,
+  BMI FLOAT(3, 1) NOT NULL,
+  calories_needed INT NOT NULL,
   calories_eaten INT 
 );
 
@@ -24,9 +24,10 @@ CREATE TABLE userInfo (
  * added temporary defaults to schema so we can insert info into it without having bmi and calories yet
  */
 
-
- INSERT INTO userInfo (name, weight, height, gender, BMI) 
-               VALUES ("Carlos", 1.7, 1.6, "male", 32.3);
+ INSERT INTO userInfo (name, weight, height, gender, BMI, calories_needed) 
+               VALUES ("Yidah", 1.7, 1.6, "female", 32.3, 2000);
+ INSERT INTO userInfo (name, weight, height, gender, BMI, calories_needed) 
+               VALUES ("Carlos", 1.7, 1.6, "male", 32.3, 2500);
 
 
  /*

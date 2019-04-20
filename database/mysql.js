@@ -31,10 +31,10 @@ module.exports.getMyData = cb => {
   });
 };
 
-module.exports.postMyData = function (name, weight, height, gender, BMI, cb) {
+module.exports.postMyData = function (name, weight, height, gender, BMI, calories_needed, cb) {
   connection.query(
-    'INSERT INTO userInfo (name, weight, height, gender, BMI) VALUES (?, ?, ?, ?, ?);',
-    [name, weight, height, gender, BMI],
+    'INSERT INTO userInfo (name, weight, height, gender, BMI, calories_needed) VALUES (?, ?, ?, ?, ?, ?);',
+    [name, weight, height, gender, BMI, calories_needed],
     (error, results) => {
       if (error) {
         cb (error);
