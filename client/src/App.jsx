@@ -20,7 +20,7 @@ class App extends Component {
     };
     this.getData = this.getData.bind(this);
     this.postData = this.postData.bind(this);
-    this.addEntry = this.addEntry.bind(this);
+    //this.addEntry = this.addEntry.bind(this);
   }
 
 
@@ -59,7 +59,7 @@ class App extends Component {
       .catch(err => console.error(err));
   }
 
-
+/*
   addEntry(name, height, weight, gender) {
     let { Info } = this.state;
       const newItem = {
@@ -75,7 +75,7 @@ class App extends Component {
       });
     }
   
-
+*/
   
 
   render() {
@@ -88,7 +88,7 @@ class App extends Component {
 		    <Route exact path="/BMI" render={(props) => <BMI {...props} postData={this.postData} />}/>  
 		    <Route exact path="/TotalCalories" component={TotalCalories}/>
 		    </Switch>
-    	  </div>
+    	 </div>
     	</BrowserRouter>
     );
   }

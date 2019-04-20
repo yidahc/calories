@@ -13,10 +13,11 @@ class BMI extends Component {
   	  height: '',
       gender: '',
       BMI: '',
+      calories_needed: '',
   	}
   this.handleInput = this.handleInput.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
-  this.calculateBMI = this.calculateBMI.bind(this)
+  this.calculateBMI = this.calculateBMI.bind(this);
 }
 	
 
@@ -34,16 +35,27 @@ class BMI extends Component {
     return weight / m;
    }
 
+
+
+
   handleSubmit(e) {
     e.preventDefault();
-    const { name, weight, height, gender } = this.state;
-    let BMI = this.calculateBMI(height, weight);
+    var { name, weight, height, gender, BMI, calories_needed } = this.state;
+    var BMI = this.calculateBMI(height, weight);
+      if (gender === "male") {
+        calories_needed = 2500;
+      } else {
+        if (gender === "female") {
+          calories_needed = 2000;
+        }
+      }
     this.props.postData('/userInfo', {
       name: name,
       weight: weight,
       height: height,
       gender: gender,
       BMI: BMI,
+      calories_needed: calories_needed,
     });
 
     this.setState({
@@ -52,13 +64,14 @@ class BMI extends Component {
       height: '',
       gender: '',
       BMI: '',
+      calories_needed: '',
     });
   }
 
 
 render() {
     
-    const { name, weight, height, gender } = this.state;
+    const { name, weight, height, gender, BMI, calories_needed } = this.state;
     const { postData } = this.props;
     return (
       <div>
