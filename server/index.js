@@ -4,9 +4,9 @@ const db = require('../database/mysql.js');
 
 
 /*
-the two arguments that these requests take are 
+the two arguments that these requests take are
 (name of the table in the database and the function used in your server/index.js
-which is the functions your server uses to get and post data to your database) 
+which is the functions your server uses to get and post data to your database)
 */
 //HTTP Requests go here
 app.get('/userInfo', getThisData);
@@ -24,8 +24,8 @@ function getThisData (request, response) {
 
 
 function postThisData (request, response) {
-  const { name, weight, height, gender } = request.body;
-  db.postMyData(name, weight, height, gender, (res) => {
+  const { name, weight, height, gender, BMI } = request.body;
+  db.postMyData(name, weight, height, gender, BMI, (res) => {
     response
       .status(200)
       .send(res)
@@ -41,4 +41,3 @@ const port = (process.env.PORT || 3000);
 app.listen(port, () => {
   console.log(`Listening on Port ${port}`);
 });
-
