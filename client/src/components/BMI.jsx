@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import Header from './Header.jsx';
-import App from '../App.jsx';
+import Header from "./Header.jsx";
+import App from "../App.jsx";
 
 
 class BMI extends Component {
   constructor(props) {
   	super(props);
   	this.state = {
-  	  name: '',
-  	  weight: '',
-  	  height: '',
-      gender: '',
-      BMI: '',
-      calories_needed: '',
+  	  name: " ",
+  	  weight: " ",
+  	  height: " ",
+      gender: "female",
+      BMI: " ",
+      calories_needed: " ",
   	}
   this.handleInput = this.handleInput.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,11 +30,12 @@ class BMI extends Component {
     });
   }
 
+
+
   calculateBMI (height, weight) {
     let m = height*height;
     return weight / m;
    }
-
 
 
 
@@ -45,11 +46,9 @@ class BMI extends Component {
       if (gender === "male") {
         calories_needed = 2500;
       } else {
-        if (gender === "female") {
           calories_needed = 2000;
         }
-      }
-    this.props.postData('/userInfo', {
+    this.props.postData("/userInfo", {
       name: name,
       weight: weight,
       height: height,
@@ -59,12 +58,12 @@ class BMI extends Component {
     });
 
     this.setState({
-      name: '',
-      weight: '',
-      height: '',
-      gender: '',
-      BMI: '',
-      calories_needed: '',
+      name: " ",
+      weight: " ",
+      height: " ",
+      gender: "female",
+      BMI: " ",
+      calories_needed: " ",
     });
   }
 
@@ -79,7 +78,7 @@ render() {
           <Header />
         </div>
         <label>
-          name:{' '}
+          name:{" "}
           <input
             type="text"
             name="name"
@@ -90,9 +89,9 @@ render() {
 
         <br />
         <label>
-          weight:{' '}
+          weight:{" "}
           <input
-            type="text "
+            type="text"
             name="weight"
             value={weight}
             onChange={this.handleInput}
@@ -101,7 +100,7 @@ render() {
 
         <br />
         <label>
-          height:{' '}
+          height:{" "}
           <input
             type="text"
             name="height"
@@ -111,21 +110,46 @@ render() {
         </label>
 
          <br />
-        <label>
-          gender:{' '}
-          <input
-            type="text"
-            name="gender"
-            value={gender}
-            onChange={this.handleInput}
-          />
-        </label>
-
+         <select
+           name="gender"
+           value={gender}
+           onChange={this.handleInput}
+           >
+           <option value="female">female</option>
+           <option value="male">male</option>
+         </select>
         <br />
-        <button onClick={this.handleSubmit}>Submit</button>
-      </div>
-    );
-  }
+         <button onClick={this.handleSubmit}>Submit</button>
+        </div>
+      );
+   }
 }
 
 export default BMI;
+       
+       /*
+        <br />
+        <select
+        name="category"
+        value={category}
+        onChange={this.handleInput}
+        >
+          <option value="utilities">utilities</option>
+          <option value="food">food</option>
+          <option value="education">education</option>
+          <option value="rent/housing">rent/housing</option>
+          <option value="health/beauty">health/beauty</option>
+          <option value="savings">savings</option>
+          <option value="debt">debt</option>
+          <option value="transportation">transportation</option>
+          <option value="entertainment">entertainment</option>
+          <option value="miscellaneous">miscellaneous</option>
+        </select>
+        <button
+          onClick={this.handleSubmit}
+        >Submit</button>
+      </div>
+      );
+    }
+
+    */
