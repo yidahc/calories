@@ -88,7 +88,7 @@ class App extends Component {
 		    <Route exact path="/BMI" render={(props) => <BMI {...props} postData={this.postData} />}/>  
 		    <Route exact path="/TotalCalories" component={TotalCalories}/>
 		    </Switch>
-    	  </div>
+    	 </div>
     	</BrowserRouter>
     );
   }
