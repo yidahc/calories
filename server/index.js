@@ -24,8 +24,8 @@ function getThisData (request, response) {
 
 
 function postThisData (request, response) {
-  const { name, weight, height, gender } = request.body;
-  db.postMyData(name, weight, height, gender, (res) => {
+  const { name, weight, height, gender, BMI } = request.body;
+  db.postMyData(name, weight, height, gender, BMI, (res) => {
     response
       .status(200)
       .send(res)
