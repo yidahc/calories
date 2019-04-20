@@ -7,7 +7,7 @@ class Home extends Component {
 	render(){
 		return (
 			<div>
-			  <center><h1 className ="Header"> &lt; Calories </h1></center>
+			  <center><h1 className ="Header"git > &lt; Calories </h1></center>
 			  <center><button><Link to="/BMI">Get Started</Link></button></center>
 			</div>
 		)
