@@ -8,7 +8,7 @@ class Home extends Component {
 	render(){
 		return (
 			<div>
-				<section class="hero is-blue">
+				<section class="hero">
           <div class="hero-body">
            <div class="container">
 			      <center><h1 className="title has-text-black is-1"> &lt; Calories </h1></center>

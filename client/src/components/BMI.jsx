@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import Header from "./Header.jsx";
 import App from "../App.jsx";
+import '../CSS/BMI.css';
 
 
 class BMI extends Component {
