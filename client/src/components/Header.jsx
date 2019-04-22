@@ -6,8 +6,8 @@ import BMI from './BMI.jsx';
 const Header = () => (
 	<div>
 	  <div className="navbar">
-	    <button><Link to="/BMI">Calculate BMI</Link></button>
-	    <button><Link to="/TotalCalories">Count Calories</Link></button>
+	    <button className="button is-text"><Link to="/BMI">Calculate BMI</Link></button>
+	    <button className="button is-text"><Link to="/TotalCalories">Count Calories</Link></button>
 	  </div>
 	</div>
 	);
