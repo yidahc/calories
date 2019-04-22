@@ -111,7 +111,7 @@ render() {
         </label>
 
          <br />
-         <select
+         <select className="button is-link is-outlined"
            name="gender"
            value={gender}
            onChange={this.handleInput}
@@ -120,7 +120,7 @@ render() {
            <option value="male">male</option>
          </select>
         <br />
-         <button onClick={this.handleSubmit}>Submit</button>
+         <button onClick={this.handleSubmit} className="button is-link is-outlined">Submit</button>
         </div>
       );
    }

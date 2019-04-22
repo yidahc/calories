@@ -12,7 +12,7 @@ class Home extends Component {
           <div class="hero-body">
            <div class="container">
 			      <center><h1 className="title has-text-black is-1"> &lt; Calories </h1></center>
-			      <center><button className="button is-medium is-danger"><Link to="/BMI">Get Started</Link></button></center>
+			      <center><button className="button is-large is-outlined"><Link to="/BMI">Get Started</Link></button></center>
 				   </div>
           </div>
        </section>
