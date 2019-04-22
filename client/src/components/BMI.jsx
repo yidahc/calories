@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import Header from "./Header.jsx";
 import App from "../App.jsx";
+import { timingSafeEqual } from "crypto";
 
 
 class BMI extends Component {
@@ -14,10 +15,12 @@ class BMI extends Component {
       gender: "female",
       BMI: " ",
       calories_needed: " ",
+      ID: ""
   	}
   this.handleInput = this.handleInput.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
   this.calculateBMI = this.calculateBMI.bind(this);
+  this.identifyingClient = this.identifyingClient.bind(this);
 }
 	
 
@@ -32,17 +35,37 @@ class BMI extends Component {
 
 
 
-  calculateBMI (height, weight) {
+  calculateBMI = function (height, weight) {
     let m = height*height;
-    return weight / m;
+    let result = (weight / m);
+    return result.toFixed(1)
    }
 
-
-
+   
+  //  identifyingClient = function (BMI){
+  //  const BMI = this.state.BMI
+  //  if(BMI < 18.5){
+  //    this.setState({ID: "Underweight"})
+  //  } else if(BMI > 18.5 && BMI < 24.9){
+  //    this.setState({ID: "Normal"})
+  //  } else if(BMI > 25 && BMI < 29.9) {
+  //    this.setState({ID: "Overweight"})
+  //  } else {
+  //    this.setState({ID: "Obese"})
+  //  }
+  //  }
+  //  }
+// If your BMI is...	You are...
+// Under 18.5 --> Underweight
+// Between 18.5 and 24.9 -->	Normal
+// Between 25 and 29.9 --> 	Overweight
+// 30 and Over	Obese
   handleSubmit(e) {
     e.preventDefault();
     var { name, weight, height, gender, BMI, calories_needed } = this.state;
     var BMI = this.calculateBMI(height, weight);
+    this.setState({BMI: BMI})
+    console.log(BMI)
       if (gender === "male") {
         calories_needed = 2500;
       } else {
@@ -73,6 +96,7 @@ render() {
     const { name, weight, height, gender, BMI, calories_needed } = this.state;
     const { postData } = this.props;
     return (
+      <div>
       <div>
         <div>
           <Header />
@@ -119,7 +143,10 @@ render() {
            <option value="male">male</option>
          </select>
         <br />
-         <button onClick={this.handleSubmit}>Submit</button>
+         <button onClick={ this.handleSubmit } onClick={ this.identifyingClient }>Submit</button>
+         <h1>Your BMI is: { this.state.BMI } </h1>
+         <h2>Your BMI is considered to be: { this.state.ID } </h2>
+        </div>
         </div>
       );
    }
