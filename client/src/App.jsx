@@ -29,7 +29,9 @@ class App extends Component {
     this.getData('/userInfo');
   }
 
-
+  // fetchData = async () => {
+  //   const response
+  // }
 
 
   getData(url = '') {
