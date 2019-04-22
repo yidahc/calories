@@ -70,6 +70,7 @@ Ivan-"I'm really glad for this app, I never have to worry about taking a pen and
 
 ### How to Get started?
 Simply fill in the input fields and hit submit!
+You can now start counting your calories based on your BMI and gender
 
 ### Customer Quote
 Satisfied Customer- " If it wasn't for this app I would have never been able to get my weight down! also at my age one forgets everything !"
