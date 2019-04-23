@@ -6,7 +6,7 @@ import BMI from './components/BMI.jsx';
 import Header from './components/Header.jsx';
 import Home from './components/Home.jsx';
 import TotalCalories from './components/TotalCalories.jsx';
-
+import FoodSearch from './components/FoodSearch.jsx';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 
 
@@ -89,6 +89,7 @@ class App extends Component {
 		    <Route exact path="/" component={Home}/>
 		    <Route exact path="/BMI" render={(props) => <BMI {...props} postData={this.postData} />}/>  
 		    <Route exact path="/TotalCalories" component={TotalCalories}/>
+        <Route exact path="/FoodSearch" render={(props) => <FoodSearch {...props} postData={this.postData} />}/>  
 		    </Switch>
     	 </div>
     	</BrowserRouter>
