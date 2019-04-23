@@ -21,7 +21,7 @@ class BMI extends Component {
   this.handleInput = this.handleInput.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
   this.calculateBMI = this.calculateBMI.bind(this);
-  this.identifyingClient = this.identifyingClient.bind(this);
+  //this.identifyingClient = this.identifyingClient.bind(this);
 }
 	
 
