@@ -15,8 +15,6 @@ class BMI extends Component {
   	  height: " ",
       gender: "female",
       BMI: " ",
-      calories_needed: " ",
-      ID: ""
   	}
   this.handleInput = this.handleInput.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
@@ -40,7 +38,7 @@ class BMI extends Component {
     let m = height*height;
     let result = (weight / m);
     return result.toFixed(1)
-   }
+  }
 
    
   //  identifyingClient = function (BMI){
@@ -61,11 +59,15 @@ class BMI extends Component {
 // Between 18.5 and 24.9 -->	Normal
 // Between 25 and 29.9 --> 	Overweight
 // 30 and Over	Obese
+
+
   handleSubmit(e) {
     e.preventDefault();
-    var { name, weight, height, gender, BMI, calories_needed } = this.state;
+    var { name, weight, height, gender, BMI } = this.state;
     var BMI = this.calculateBMI(height, weight);
-    this.setState({BMI: BMI})
+    this.setState({ 
+      BMI: BMI
+    });
     console.log(BMI)
       if (gender === "male") {
         calories_needed = 2500;
@@ -77,25 +79,22 @@ class BMI extends Component {
       weight: weight,
       height: height,
       gender: gender,
-      BMI: BMI,
-      calories_needed: calories_needed,
+      BMI: BMI
     });
 
     this.setState({
       name: " ",
       weight: " ",
       height: " ",
-      gender: "female",
-      BMI: " ",
-      calories_needed: " ",
+      gender: "female"
     });
   }
 
 
 render() {
     
-    const { name, weight, height, gender, BMI, calories_needed } = this.state;
-    const { postData } = this.props;
+    const { name, weight, height, gender, BMI } = this.state;
+
     return (
       <div>
       <div>
@@ -144,8 +143,8 @@ render() {
            <option value="male">male</option>
          </select>
         <br />
-         <button onClick={ this.handleSubmit } onClick={ this.identifyingClient }>Submit</button>
-         <h1>Your BMI is: { this.state.BMI } </h1>
+         <button onClick={ this.handleSubmit }>Submit</button>
+         <h1>Your BMI is: { BMI } </h1>
          <h2>Your BMI is considered to be: { this.state.ID } </h2>
         </div>
         </div>
