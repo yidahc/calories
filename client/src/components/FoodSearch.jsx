@@ -6,33 +6,40 @@ const apiKey = '&app_id=6faf9cc7&app_key=5c9b29569582527e3c87130f130cb58d';
 
 
 class FoodSearch extends Component {
- state = {
-   query: '',
-   results: []
+  constructor(props) {
+  	super(props);
+    this.state = {
+    query: '',
+    results: []
+    }
+  this.handleInput = this.handleInput.bind(this);
+  this.findAndReplace = this.findAndReplace.bind(this);
+  this.getInfo = this.getInfo.bind(this);
+  }
+    
+  findAndReplace = (string, target, replacement) => {
+    for (var i = 0; i < string.length; i++) {
+      var s = string.replace(target, replacement);
+    };
+    return s;
   }
 
   handleInput= () => {
     this.setState({
       query: this.search.value
-    }, () => {
-      if (this.state.query && this.state.query.length > 1) {
-          this.getInfo(this.state.query)
-      } 
-    })
+    });
+    if (this.state.query.length >= 2) {
+    this.getInfo(this.state.query);
+    }
   }
 
- getInfo = () => {
+  getInfo = (ingredient) => {
   var ing = this.findAndReplace(ingredient, " ", "%20");
     axios.get(`${apiURL}${ing}${apiKey}`)
-    .then(data => {
-      data.hints.map(e => {
-        this.setState({
-        results: e.food.label
-        })
-        console.log(e.food.label)
-      }); 
-      })
-};
+    .then(({ data }) => {
+        data.hints.map(e => this.setState ({ results: e.food.label}))
+      }) 
+  }
 
 
  render() {

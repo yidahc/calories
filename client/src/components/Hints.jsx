@@ -1,3 +1,4 @@
+/*
 import React from 'react'
 
 const Hints = (props) => {
@@ -10,3 +11,4 @@ const Hints = (props) => {
 }
 
 export default Hints
+*/
