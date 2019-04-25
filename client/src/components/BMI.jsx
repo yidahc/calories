@@ -39,7 +39,7 @@ class BMI extends Component {
     let m = height*height;
     let result = (weight / m);
     return result.toFixed(1)
-   }
+  }
 
   identifyingClient = function (BMI){
     
@@ -152,30 +152,3 @@ render() {
 }
 
 export default BMI;
-       
-       /*
-        <br />
-        <select
-        name="category"
-        value={category}
-        onChange={this.handleInput}
-        >
-          <option value="utilities">utilities</option>
-          <option value="food">food</option>
-          <option value="edsfucation">education</option>
-          <option value="rent/housing">rent/housing</option>
-          <option value="health/beauty">health/beauty</option>
-          <option value="savings">savings</option>
-          <option value="debt">debt</option>
-          <option value="transportation">transportation</option>
-          <option value="entertainment">entertainment</option>
-          <option value="miscellaneous">miscellaneous</option>
-        </select>
-        <button
-          onClick={this.handleSubmit}
-        >Submit</button>
-      </div>
-      );
-    }
-
-    */

@@ -54,21 +54,3 @@ module.exports.getMyCaloriesNeeded = cb => {
   })
 }
 
-/*
-//Example mysql query using Promises
-const sampleQuery = function() {
-  return new Promise((resolve, reject) => {
-    connection.query('SELECT * FROM table', (err, data) => {
-      if (err) {
-        return reject(err);
-      }
-      return resolve(data);
-    });
-  });
-};
-
-module.exports = {
-  sampleQuery,
-};
-
-*/
