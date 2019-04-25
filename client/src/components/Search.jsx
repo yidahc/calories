@@ -24,13 +24,8 @@ class FoodSearch extends Component {
     
     componentDidMount() {
     //this.fetchHints("green apple")
-    console.log(this.fetchHints("green apple"))
     };
-/*
-renderData() {
- 
-}
-*/
+    
 handleInput(e) {
   const { target } = e;
   const { name, value } = target;

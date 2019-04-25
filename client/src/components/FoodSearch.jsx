@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import axios from 'axios'
+import React, { Component } from 'react';
+import axios from 'axios';
 import Hints from "./Hints.jsx";
 
 const apiURL = 'https://api.edamam.com/api/food-database/parser?ingr=';
@@ -30,8 +30,11 @@ class FoodSearch extends Component {
       query: this.search.value
     });
     if (this.state.query.length >= 2) {
-    this.getInfo(this.state.query);
-    }
+      if (this.state.query.length % 2 === 0) {
+        this.getInfo(this.state.query);
+      } 
+    } else if (!this.state.query) {
+       }
   }
 
   getInfo = (ingredient) => {
@@ -39,7 +42,7 @@ class FoodSearch extends Component {
     axios.get(`${apiURL}${ing}${apiKey}`)
     .then(({ data }) => {
         data.hints.map(e => {
-          this.state.results.push(e.food); 
+          this.state.results.push(e.food.label); 
           console.log(this.state.results)
         })
       }) 
@@ -48,14 +51,24 @@ class FoodSearch extends Component {
 
  render() {
    return (
+     <div>
      <form>
        <input
          placeholder="Search for..."
          ref={input => this.search = input}
          onChange={this.handleInput}
        />
-      <Hints results={this.state.results} />
      </form>
+     <div>
+       {this.state.results.map(e => { 
+        return(
+       <ul>
+         <li key={e[i]}>{e}</li>
+       </ul>
+        )
+       })}
+     </div>
+     </div>
    )
  }
 }
