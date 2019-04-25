@@ -37,7 +37,7 @@ class FoodSearch extends Component {
   var ing = this.findAndReplace(ingredient, " ", "%20");
     axios.get(`${apiURL}${ing}${apiKey}`)
     .then(({ data }) => {
-        data.hints.map(e => this.setState ({ results: e.food.label}))
+        data.hints.map(e => this.state.results.push(e.food.label))
       }) 
   }
 
