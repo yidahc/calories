@@ -45,18 +45,18 @@ class BMI extends Component {
     
       let result = ""
    if(BMI < 18.5){
-     let result = "Underweight"
+      result = "Underweight"
    } else if(BMI > 18.5 && BMI < 24.9){
-     let result = "Normal" 
+     result = "Normal" 
    } else if(BMI > 25 && BMI < 29.9) {
-     let result = "Overweight"
+     result = "Overweight"
    } else {
-     let result = "Obese"
+     result = "Obese"
    }
    this.setState({
      ID: result
    })
-   console.log("hello" + ID)
+   console.log("hello" + this.state.ID)
   }
   
 
