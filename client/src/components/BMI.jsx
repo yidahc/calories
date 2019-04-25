@@ -22,7 +22,6 @@ class BMI extends Component {
   this.handleSubmit = this.handleSubmit.bind(this);
   this.calculateBMI = this.calculateBMI.bind(this);
   this.identifyingClient = this.identifyingClient.bind(this);
-  this.getCals = this.getCals.bind(this);
 }
 	
   handleInput(e) {
@@ -43,67 +42,57 @@ class BMI extends Component {
    }
 
   identifyingClient = function (BMI){
+    
       let result = ""
    if(BMI < 18.5){
       result = "Underweight"
    } else if(BMI > 18.5 && BMI < 24.9){
-      result = "Normal" 
+     result = "Normal" 
    } else if(BMI > 25 && BMI < 29.9) {
-      result = "Overweight"
+     result = "Overweight"
    } else {
-      result = "Obese"
+     result = "Obese"
    }
    this.setState({
      ID: result
    })
-   }
-  
-getCals() {
-  let num;
-  if (this.state.gender === "male") {
-    num = 2500;
-  } else { 
-    if (this.state.gender === "female") {
-    num = 2000;
-    }
+   console.log("hello" + this.state.ID)
   }
-  this.setState({
-    calories_needed: num
-  })
-}   
+  
 
 handleSubmit(e) {
   e.preventDefault();
-  var { name, weight, height, gender, BMI } = this.state;
+  var { name, weight, height, gender, BMI, calories_needed } = this.state;
   var BMI = this.calculateBMI(height, weight);
-  console.log('i am  bmi:'+BMI);
   this.identifyingClient(BMI);
-  this.setState({ 
+  this.setState({
     BMI: BMI
   });
-  this.getCals()
+    if (gender === "male") {
+      calories_needed = 2500;
+    } else {
+        calories_needed = 2000;
+      }
   this.props.postData("/userInfo", {
     name: name,
     weight: weight,
     height: height,
     gender: gender,
     BMI: BMI,
-    calories_needed: this.state.calories_needed
+    calories_needed: calories_needed
   });
-  this.setState({
-    name: " ",
-    weight: " ",
-    height: " ",
-    gender: "female"
-  });
+
+  
   }
 
 
 render() {
     
-    const { name, weight, height, gender } = this.state;
+    const { name, weight, height, gender, calories_needed } = this.state;
     const BMI = this.state.BMI
-    console.log('BMI:' + BMI)
+    const ID = this.state.ID
+    const { postData } = this.props;
+    
     return (
       <div>
       <div>
@@ -154,7 +143,8 @@ render() {
         <br />
          <button onClick={ this.handleSubmit } >Submit</button>
          <h1>Your BMI is: { this.state.BMI } </h1>
-         <h2>Your BMI is considered to be: { this.state.ID } </h2>
+         {console.log(this.state.ID)}
+         <h2>Your BMI is considered to be: { ID } </h2>
         </div>
         </div>
       );
@@ -163,3 +153,29 @@ render() {
 
 export default BMI;
        
+       /*
+        <br />
+        <select
+        name="category"
+        value={category}
+        onChange={this.handleInput}
+        >
+          <option value="utilities">utilities</option>
+          <option value="food">food</option>
+          <option value="edsfucation">education</option>
+          <option value="rent/housing">rent/housing</option>
+          <option value="health/beauty">health/beauty</option>
+          <option value="savings">savings</option>
+          <option value="debt">debt</option>
+          <option value="transportation">transportation</option>
+          <option value="entertainment">entertainment</option>
+          <option value="miscellaneous">miscellaneous</option>
+        </select>
+        <button
+          onClick={this.handleSubmit}
+        >Submit</button>
+      </div>
+      );
+    }
+
+    */
