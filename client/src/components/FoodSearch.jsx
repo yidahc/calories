@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import Hints from "./Hints.jsx";
 
 const apiURL = 'https://api.edamam.com/api/food-database/parser?ingr=';
 const apiKey = '&app_id=6faf9cc7&app_key=5c9b29569582527e3c87130f130cb58d';
@@ -37,7 +38,10 @@ class FoodSearch extends Component {
   var ing = this.findAndReplace(ingredient, " ", "%20");
     axios.get(`${apiURL}${ing}${apiKey}`)
     .then(({ data }) => {
-        data.hints.map(e => this.state.results.push(e.food.label))
+        data.hints.map(e => {
+          this.state.results.push(e.food); 
+          console.log(this.state.results)
+        })
       }) 
   }
 
@@ -50,7 +54,7 @@ class FoodSearch extends Component {
          ref={input => this.search = input}
          onChange={this.handleInput}
        />
-       <p>{this.state.results}</p>
+      <Hints results={this.state.results} />
      </form>
    )
  }
