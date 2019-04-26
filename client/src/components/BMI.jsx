@@ -122,9 +122,10 @@ render() {
         </section>
 
         <br />
-        <div class="field">
-        <label class="label">
-        <div class="control">
+        <section class="section">
+        <div class="field" class="container" class="columns level-left">
+         <label class="label">
+          <div class="control">
           weight:{" "}
           <input class="input"
             type="text"
@@ -135,11 +136,13 @@ render() {
           </div>
         </label>
         </div>
+        </section>
 
         <br />
-        <div class="field">
-        <label class="label">
-        <div class="control">
+        <section class="section">
+        <div class="field" class="container" class="columns level-left">
+         <label class="label">
+          <div class="control">
           height:{" "}
           <input class="input"
             type="text"
@@ -150,7 +153,8 @@ render() {
           </div>
         </label>
         </div>
-
+        </section>
+        
          <br />
          <div class="field">
          <div class="control">
