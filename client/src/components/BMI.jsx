@@ -23,7 +23,7 @@ class BMI extends Component {
   this.calculateBMI = this.calculateBMI.bind(this);
   this.identifyingClient = this.identifyingClient.bind(this);
 }
-	
+
   handleInput(e) {
     const { target } = e;
     const { name, value } = target;
@@ -42,12 +42,12 @@ class BMI extends Component {
    }
 
   identifyingClient = function (BMI){
-    
+
       let result = ""
    if(BMI < 18.5){
       result = "Underweight"
    } else if(BMI > 18.5 && BMI < 24.9){
-     result = "Normal" 
+     result = "Normal"
    } else if(BMI > 25 && BMI < 29.9) {
      result = "Overweight"
    } else {
@@ -58,7 +58,7 @@ class BMI extends Component {
    })
    console.log("hello" + this.state.ID)
   }
-  
+
 
 handleSubmit(e) {
   e.preventDefault();
@@ -82,24 +82,27 @@ handleSubmit(e) {
     calories_needed: calories_needed
   });
 
-  
+
   }
 
 
 render() {
-    
+
     const { name, weight, height, gender, calories_needed } = this.state;
     const BMI = this.state.BMI
     const ID = this.state.ID
     const { postData } = this.props;
-    
+
     return (
       <div>
       <div>
         <div>
           <Header />
         </div>
-        <label>
+
+        <div class="field">
+        <label class="label">
+        <div class="control">
           name:{" "}
           <input
             type="text"
@@ -107,10 +110,14 @@ render() {
             value={name}
             onChange={this.handleInput}
           />
+          </div>
         </label>
+        </div>
 
         <br />
-        <label>
+        <div class="field">
+        <label class="label">
+        <div class="control">
           weight:{" "}
           <input
             type="text"
@@ -118,10 +125,14 @@ render() {
             value={weight}
             onChange={this.handleInput}
           />
+          </div>
         </label>
+        </div>
 
         <br />
-        <label>
+        <div class="field">
+        <label class="label">
+        <div class="control">
           height:{" "}
           <input
             type="text"
@@ -129,9 +140,16 @@ render() {
             value={height}
             onChange={this.handleInput}
           />
+          </div>
         </label>
+        </div>
 
          <br />
+         <div class="field">
+
+  <div class="control">
+    <div class="select">
+    <label class="label">Select</label>
          <select className="button is-link is-outlined"
            name="gender"
            value={gender}
@@ -140,8 +158,14 @@ render() {
            <option value="female">female</option>
            <option value="male">male</option>
          </select>
+         </div>
+  </div>
+</div>
+
         <br />
          <button onClick={ this.handleSubmit } >Submit</button>
+
+
          <h1>Your BMI is: { this.state.BMI } </h1>
          {console.log(this.state.ID)}
          <h2>Your BMI is considered to be: { ID } </h2>
@@ -152,7 +176,7 @@ render() {
 }
 
 export default BMI;
-       
+
        /*
         <br />
         <select
