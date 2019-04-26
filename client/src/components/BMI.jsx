@@ -105,8 +105,9 @@ render() {
       </div>
 
         // CSS BMI info submit
-        <section class="section">
-        <div class="field" class="container" class="columns level-left">
+
+        <div class="field" class="columns">
+          <div class="column is-one-quarter">
          <label class="label">
           <div class="control">
            name:{" "}
@@ -118,12 +119,12 @@ render() {
           />
           </div>
          </label>
+         </div>
         </div>
-        </section>
 
         <br />
-        <section class="section">
-        <div class="field" class="container" class="columns level-left">
+        <div class="field" class="columns">
+          <div class="column is-one-quarter">
          <label class="label">
           <div class="control">
           weight:{" "}
@@ -136,11 +137,11 @@ render() {
           </div>
         </label>
         </div>
-        </section>
+        </div>
 
         <br />
-        <section class="section">
-        <div class="field" class="container" class="columns level-left">
+        <div class="field" class="columns">
+          <div class="column is-one-quarter">
          <label class="label">
           <div class="control">
           height:{" "}
@@ -153,8 +154,8 @@ render() {
           </div>
         </label>
         </div>
-        </section>
-        
+        </div>
+
          <br />
          <div class="field">
          <div class="control">
