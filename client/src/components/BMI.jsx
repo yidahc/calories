@@ -96,30 +96,37 @@ render() {
     return (
       <div>
       <div>
-        <div>
+
+     // CSS Header
+      <div class="columns level-right">
+        <div class="column is-two-fifths">
           <Header />
         </div>
+      </div>
 
-        <div class="field">
-        <label class="label">
-        <div class="control">
-          name:{" "}
-          <input
+        // CSS BMI info submit
+        <section class="section">
+        <div class="field" class="container" class="columns level-left">
+         <label class="label">
+          <div class="control">
+           name:{" "}
+          <input class="input"
             type="text"
             name="name"
             value={name}
             onChange={this.handleInput}
           />
           </div>
-        </label>
+         </label>
         </div>
+        </section>
 
         <br />
         <div class="field">
         <label class="label">
         <div class="control">
           weight:{" "}
-          <input
+          <input class="input"
             type="text"
             name="weight"
             value={weight}
@@ -134,7 +141,7 @@ render() {
         <label class="label">
         <div class="control">
           height:{" "}
-          <input
+          <input class="input"
             type="text"
             name="height"
             value={height}
@@ -146,11 +153,10 @@ render() {
 
          <br />
          <div class="field">
-
-  <div class="control">
-    <div class="select">
-    <label class="label">Select</label>
-         <select className="button is-link is-outlined"
+         <div class="control">
+         <label class="label">Select</label>
+         <div class="select">
+         <select
            name="gender"
            value={gender}
            onChange={this.handleInput}
@@ -158,12 +164,12 @@ render() {
            <option value="female">female</option>
            <option value="male">male</option>
          </select>
-         </div>
-  </div>
-</div>
 
         <br />
-         <button onClick={ this.handleSubmit } >Submit</button>
+         <button class="button is-primary" onClick={ this.handleSubmit } >Submit</button>
+         </div>
+      </div>
+      </div>
 
 
          <h1>Your BMI is: { this.state.BMI } </h1>
