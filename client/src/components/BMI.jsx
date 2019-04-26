@@ -105,7 +105,7 @@ render() {
       </div>
 
         // CSS BMI info submit
-
+        <section class="section">
         <div class="field" class="columns">
           <div class="column is-one-quarter">
          <label class="label">
@@ -175,7 +175,7 @@ render() {
          </div>
       </div>
       </div>
-
+      </section>
 
          <h1>Your BMI is: { this.state.BMI } </h1>
          {console.log(this.state.ID)}
