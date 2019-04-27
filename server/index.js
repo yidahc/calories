@@ -10,7 +10,9 @@ which is the functions your server uses to get and post data to your database)
 // HTTP Requests go here
 app.get('/userInfo', getThisData)
 app.post('/userInfo', postThisData)
+app.post('/userInfoCaloriesEaten', postThisDataCaloriesEaten)
 app.get('/calneed', getDataCaloriesNeeded)
+app.get('/caleat', getDataCaloriesEaten)
 
 function getThisData (request, response) {
   db.getMyData(data => {
@@ -31,12 +33,32 @@ function postThisData (request, response) {
   })
 };
 
+function postThisDataCaloriesEaten (request, response) {
+  const { calories_eaten } = request.body
+  db.postMyDataCaloriesEaten(calories_eaten, (res) => {
+    response
+      .status(200)
+      .send(res)
+      .end()
+  })
+};
+
 function getDataCaloriesNeeded (request, response) {
   db.getMyCaloriesNeeded(dataCaloriesNeeded => {
     console.log(dataCaloriesNeeded)
     response
       .status(200)
       .send(dataCaloriesNeeded)
+      .end()
+  })
+};
+
+function getDataCaloriesEaten (request, response) {
+  db.getMyCaloriesEaten(dataCaloriesEaten => {
+    console.log(dataCaloriesEaten)
+    response
+      .status(200)
+      .send(dataCaloriesEaten)
       .end()
   })
 };
