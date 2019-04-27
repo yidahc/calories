@@ -1,4 +1,4 @@
-
+/*
 import React, { Component } from 'react'
 import axios from 'axios'
 
@@ -56,4 +56,4 @@ class FoodSearch extends Component {
 }
 
 export default FoodSearch
-
+*/
