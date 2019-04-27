@@ -13,7 +13,7 @@ class BMI extends Component {
       name: " ",
       weight: " ",
       height: " ",
-      gender: "gender",
+      gender: "female",
       BMI: " ",
       calories_needed: " ",
       ID: ""
@@ -96,52 +96,87 @@ render() {
     return (
       <div>
       <div>
-        <div>
+
+     // CSS Header
+      <div class="columns level-right">
+        <div class="column is-two-fifths">
           <Header />
         </div>
-        <label>
-          name:{" "}
-          <input
-            type="text"
-            name="name"
-            value={name}
-            onChange={this.handleInput}
-          />
-        </label>
+      </div>
 
-        <br />
-        <label>
-          weight:{" "}
-          <input
-            type="text"
-            name="weight"
-            value={weight}
-            onChange={this.handleInput}
-          />
-        </label>
+        // CSS BMI info submit
+      <section class="section">
+        <div class="field" class="columns">
+          <div class="column is-one-quarter">
+           <label class="label">
+            <div class="control">
+             name:{" "}
+            <input class="input"
+             type="text"
+             name="name"
+             value={name}
+             onChange={this.handleInput}
+            />
+          </div>
+         </label>
+        </div>
+      </div>
 
-        <br />
-        <label>
-          height:{" "}
-          <input
-            type="text"
-            name="height"
-            value={height}
-            onChange={this.handleInput}
-          />
-        </label>
+      <br />
+        <div class="field" class="columns">
+          <div class="column is-one-quarter">
+           <label class="label">
+            <div class="control">
+             weight:{" "}
+            <input class="input"
+             type="text"
+             name="weight"
+             value={weight}
+             onChange={this.handleInput}
+            />
+           </div>
+         </label>
+        </div>
+      </div>
+
+      <br />
+       <div class="field" class="columns">
+         <div class="column is-one-quarter">
+          <label class="label">
+           <div class="control">
+             height:{" "}
+           <input class="input"
+             type="text"
+             name="height"
+             value={height}
+             onChange={this.handleInput}
+           />
+          </div>
+         </label>
+        </div>
+       </div>
 
          <br />
-         <select className="button is-link is-outlined"
+         <div class="field">
+         <div class="control">
+         <label class="label">Select</label>
+         <div class="select">
+         <select
            name="gender"
            value={gender}
            onChange={this.handleInput}
            >
-           <option value="male">male</option>
            <option value="female">female</option>
+           <option value="male">male</option>
          </select>
+
         <br />
-         <button onClick={ this.handleSubmit } >Submit</button>
+         <button class="button is-primary" onClick={ this.handleSubmit } >Submit</button>
+         </div>
+      </div>
+      </div>
+      </section>
+
          <h1>Your BMI is: { this.state.BMI } </h1>
          {console.log(this.state.ID)}
          <h2>Your BMI is considered to be: { ID } </h2>
@@ -152,3 +187,29 @@ render() {
 }
 
 export default BMI;
+
+       /*
+        <br />
+        <select
+        name="category"
+        value={category}
+        onChange={this.handleInput}
+        >
+          <option value="utilities">utilities</option>
+          <option value="food">food</option>
+          <option value="edsfucation">education</option>
+          <option value="rent/housing">rent/housing</option>
+          <option value="health/beauty">health/beauty</option>
+          <option value="savings">savings</option>
+          <option value="debt">debt</option>
+          <option value="transportation">transportation</option>
+          <option value="entertainment">entertainment</option>
+          <option value="miscellaneous">miscellaneous</option>
+        </select>
+        <button
+          onClick={this.handleSubmit}
+        >Submit</button>
+      </div>
+      );
+    }
+    */
