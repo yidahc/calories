@@ -16,6 +16,7 @@ class FoodSearch extends Component {
   this.handleInput = this.handleInput.bind(this);
   this.findAndReplace = this.findAndReplace.bind(this);
   this.getInfo = this.getInfo.bind(this);
+  this.handleSubmit = this.handleSubmit.bind(this);
   }
     
   findAndReplace = (string, target, replacement) => {
@@ -25,27 +26,41 @@ class FoodSearch extends Component {
     return s;
   }
 
-  handleInput= () => {
+  handleInput = () => {
     this.setState({
       query: this.search.value
-    });
-    if (this.state.query.length >= 2) {
-      if (this.state.query.length % 2 === 0) {
-        this.getInfo(this.state.query);
-      } 
-    } else if (!this.state.query) {
-       }
+    })
   }
+  
+  handleSubmit = () => {
+    this.getInfo(this.state.query)
+  }
+
+  /*{
+      if (this.state.query.length >= 2) {
+        if (this.state.query.length % 2 === 0) {
+           (this.getInfo(this.state.query));
+        } 
+      } 
+    }    
+  */
+   // same as handle input, but using sync await
+    // it has to wait until it receives the information to be able to render it
+  
 
   getInfo = (ingredient) => {
   var ing = this.findAndReplace(ingredient, " ", "%20");
-    axios.get(`${apiURL}${ing}${apiKey}`)
+    return axios.get(`${apiURL}${ing}${apiKey}`)
     .then(({ data }) => {
+        let suggestions= [];
         data.hints.map(e => {
-          this.state.results.push(e.food.label); 
-          console.log(this.state.results)
+          suggestions.push([e.food.label, e.food.nutrients.ENERC_KCAL]); 
         })
-      }) 
+        this.setState({ 
+          results: suggestions
+        })
+      })
+    .catch(err => console.error(err))
   }
 
 
@@ -57,20 +72,22 @@ class FoodSearch extends Component {
          placeholder="Search for..."
          ref={input => this.search = input}
          onChange={this.handleInput}
-       />
+       />         
      </form>
-     <div>
-       {this.state.results.map(e => { 
-        return(
-       <ul>
-         <li key={e[i]}>{e}</li>
-       </ul>
-        )
-       })}
-     </div>
+    <button
+          onClick={this.handleSubmit}
+        >Submit
+        </button>
+        <Hints results={this.state.results}/>
      </div>
    )
  }
 }
 
 export default FoodSearch
+
+/*
+        <button
+          onClick={this.handleSubmit}
+        >Submit</button>
+*/

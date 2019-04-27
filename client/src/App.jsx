@@ -14,26 +14,24 @@ class App extends Component {
     this.state = {
       Info: []
     }
-    this.getData = this.getData.bind(this)
+    // this.getData = this.getData.bind(this)
     this.postData = this.postData.bind(this)
   }
 
   componentDidMount () {
-    this.getData('/userInfo')
+    // this.getData('/userInfo')
   }
 
-
-
-  getData (url = '') {
-    return fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          Info: data
-        })
-      })
-      .catch(err => console.error(err))
-  }
+  // getData(url = '') {
+  //   return fetch(url)
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       this.setState({
+  //         Info: data
+  //       })
+  //     })
+  //     .catch(err => console.error(err))
+  // }
 
   postData (url = '', data = {}) {
     return fetch(url, {
