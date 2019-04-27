@@ -110,8 +110,9 @@ render() {
           <div class="column is-one-quarter">
            <label class="label">
             <div class="control">
-             name:{" "}
-            <input class="input"
+             NAME:{" "}
+            <input class="input is-hovered"
+             placeholder="Hovered input"
              type="text"
              name="name"
              value={name}
@@ -127,8 +128,9 @@ render() {
           <div class="column is-one-quarter">
            <label class="label">
             <div class="control">
-             weight:{" "}
-            <input class="input"
+             WEIGHT:{" "}
+            <input class="input is-hovered"
+             placeholder="Hovered input"
              type="text"
              name="weight"
              value={weight}
@@ -144,8 +146,9 @@ render() {
          <div class="column is-one-quarter">
           <label class="label">
            <div class="control">
-             height:{" "}
-           <input class="input"
+             HEIGHT:{" "}
+            <input class="input is-hovered"
+             placeholder="Hovered input"
              type="text"
              name="height"
              value={height}
@@ -162,16 +165,18 @@ render() {
          <label class="label">Select</label>
          <div class="select">
          <select
+           class="input is-hovered"
+           placeholder="Hovered input"
            name="gender"
            value={gender}
            onChange={this.handleInput}
            >
-           <option value="female">female</option>
-           <option value="male">male</option>
+           <option value="female">FEMALE</option>
+           <option value="male">MALE</option>
          </select>
 
         <br />
-         <button class="button is-primary" onClick={ this.handleSubmit } >Submit</button>
+         <button class="input is-hovered" placeholder="Hovered input" onClick={ this.handleSubmit } >SUBMIT</button>
          </div>
       </div>
       </div>
