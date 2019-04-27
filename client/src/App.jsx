@@ -19,19 +19,19 @@ class App extends Component {
   }
 
   componentDidMount () {
-    // this.getData('/userInfo')
+    this.getData('/userInfo')
   }
 
-  // getData(url = '') {
-  //   return fetch(url)
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       this.setState({
-  //         Info: data
-  //       })
-  //     })
-  //     .catch(err => console.error(err))
-  // }
+  getData(url = '') {
+    return fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          Info: data
+        })
+      })
+      .catch(err => console.error(err))
+  }
 
   postData (url = '', data = {}) {
     return fetch(url, {

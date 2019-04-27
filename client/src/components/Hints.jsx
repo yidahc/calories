@@ -1,11 +1,11 @@
 import React from 'react'
 
 
-const Hints = ({results}) => {
+const Hints = ({results, handleClick}) => {
   return(
     <div>
       <ul>
-      {results.map(item => <li>{item[0]}</li>)}
+      {results.map(item => <li onClick={()=>handleClick}>{item[0]}</li>)}
       </ul>
     </div>
   )

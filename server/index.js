@@ -49,7 +49,7 @@ function getDataCaloriesNeeded (request, response) {
       .send(dataCaloriesNeeded)
       .end()
   })
-}; 
+};
 
 const port = (process.env.PORT || 3000)
 

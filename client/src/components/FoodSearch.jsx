@@ -5,10 +5,9 @@ import Hints from "./Hints.jsx";
 const apiURL = 'https://api.edamam.com/api/food-database/parser?ingr=';
 const apiKey = '&app_id=6faf9cc7&app_key=5c9b29569582527e3c87130f130cb58d';
 
-
 class FoodSearch extends Component {
   constructor(props) {
-  	super(props);
+    super(props);
     this.state = {
     query: '',
     results: []
@@ -17,8 +16,9 @@ class FoodSearch extends Component {
   this.findAndReplace = this.findAndReplace.bind(this);
   this.getInfo = this.getInfo.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
+  this.handleClick = this.handleClick.bind(this);
   }
-    
+
   findAndReplace = (string, target, replacement) => {
     for (var i = 0; i < string.length; i++) {
       var s = string.replace(target, replacement);
@@ -30,13 +30,18 @@ class FoodSearch extends Component {
     this.setState({
       query: this.search.value
     })
+    if (this.state.query.length >= 2) {
+      if (this.state.query.length % 2 === 0) {
+         (this.getInfo(this.state.query));
+      } 
+    }     
   }
-  
+   /*
   handleSubmit = () => {
     this.getInfo(this.state.query)
   }
 
-  /*{
+ {
       if (this.state.query.length >= 2) {
         if (this.state.query.length % 2 === 0) {
            (this.getInfo(this.state.query));
@@ -63,6 +68,11 @@ class FoodSearch extends Component {
     .catch(err => console.error(err))
   }
 
+  handleClick = (index) => {
+    let cals =  results[index][1];
+    this.addtoCals(cals)
+  }
+
 
  render() {
    return (
@@ -74,11 +84,7 @@ class FoodSearch extends Component {
          onChange={this.handleInput}
        />         
      </form>
-    <button
-          onClick={this.handleSubmit}
-        >Submit
-        </button>
-        <Hints results={this.state.results}/>
+        <Hints results={this.state.results} handleClick={this.handleClick}/>
      </div>
    )
  }
