@@ -105,56 +105,56 @@ render() {
       </div>
 
         // CSS BMI info submit
-        <section class="section">
+      <section class="section">
         <div class="field" class="columns">
           <div class="column is-one-quarter">
-         <label class="label">
-          <div class="control">
-           name:{" "}
-          <input class="input"
-            type="text"
-            name="name"
-            value={name}
-            onChange={this.handleInput}
-          />
+           <label class="label">
+            <div class="control">
+             name:{" "}
+            <input class="input"
+             type="text"
+             name="name"
+             value={name}
+             onChange={this.handleInput}
+            />
           </div>
          </label>
-         </div>
         </div>
+      </div>
 
-        <br />
+      <br />
         <div class="field" class="columns">
           <div class="column is-one-quarter">
-         <label class="label">
-          <div class="control">
-          weight:{" "}
-          <input class="input"
-            type="text"
-            name="weight"
-            value={weight}
-            onChange={this.handleInput}
-          />
-          </div>
-        </label>
+           <label class="label">
+            <div class="control">
+             weight:{" "}
+            <input class="input"
+             type="text"
+             name="weight"
+             value={weight}
+             onChange={this.handleInput}
+            />
+           </div>
+         </label>
         </div>
-        </div>
+      </div>
 
-        <br />
-        <div class="field" class="columns">
-          <div class="column is-one-quarter">
-         <label class="label">
-          <div class="control">
-          height:{" "}
-          <input class="input"
-            type="text"
-            name="height"
-            value={height}
-            onChange={this.handleInput}
-          />
+      <br />
+       <div class="field" class="columns">
+         <div class="column is-one-quarter">
+          <label class="label">
+           <div class="control">
+             height:{" "}
+           <input class="input"
+             type="text"
+             name="height"
+             value={height}
+             onChange={this.handleInput}
+           />
           </div>
-        </label>
+         </label>
         </div>
-        </div>
+       </div>
 
          <br />
          <div class="field">
