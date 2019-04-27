@@ -6,7 +6,7 @@ const mysql = require('mysql2')
 const config = {
   host: 'localhost',
   user: 'root',
-  password: '170482',
+  password: 'Holacode',
   database: 'calories'
 }
 
@@ -44,7 +44,7 @@ module.exports.postMyData = function (name, weight, height, gender, BMI, calorie
 }
 
 module.exports.getMyCaloriesNeeded = cb => {
-  connection.query('SELECT calories_needed FROM userInfo ORDER BY gender DESC LIMIT 1', (error, resultsCaloriesNeeded) => {
+  connection.query('SELECT calories_needed FROM userInfo ORDER BY id DESC LIMIT 1', (error, resultsCaloriesNeeded) => {
     if (error) {
       throw error
     } else {

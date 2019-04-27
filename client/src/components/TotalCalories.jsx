@@ -31,6 +31,7 @@ class TotalCalories extends Component {
     const { calories_needed } = this.state
     var obj = calories_needed[0]
     var int
+    console.log('working' + calories_needed)
     for (var i in obj) {
       if (i === 'calories_needed') {
         int = obj[i]

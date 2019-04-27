@@ -1,3 +1,5 @@
+// schema.sql
+
 DROP DATABASE IF EXISTS calories;
 
 CREATE DATABASE calories;
