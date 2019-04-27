@@ -8,22 +8,22 @@ import '../CSS/BMI.css';
 
 class BMI extends Component {
   constructor(props) {
-  	super(props);
-  	this.state = {
-  	  name: " ",
-  	  weight: " ",
-  	  height: " ",
-      gender: "female",
+    super(props);
+    this.state = {
+      name: " ",
+      weight: " ",
+      height: " ",
+      gender: "gender",
       BMI: " ",
       calories_needed: " ",
       ID: ""
-  	}
+    }
   this.handleInput = this.handleInput.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
   this.calculateBMI = this.calculateBMI.bind(this);
   this.identifyingClient = this.identifyingClient.bind(this);
 }
-	
+
   handleInput(e) {
     const { target } = e;
     const { name, value } = target;
@@ -42,12 +42,12 @@ class BMI extends Component {
    }
 
   identifyingClient = function (BMI){
-    
+
       let result = ""
    if(BMI < 18.5){
       result = "Underweight"
    } else if(BMI > 18.5 && BMI < 24.9){
-     result = "Normal" 
+     result = "Normal"
    } else if(BMI > 25 && BMI < 29.9) {
      result = "Overweight"
    } else {
@@ -58,7 +58,7 @@ class BMI extends Component {
    })
    console.log("hello" + this.state.ID)
   }
-  
+
 
 handleSubmit(e) {
   e.preventDefault();
@@ -82,17 +82,17 @@ handleSubmit(e) {
     calories_needed: calories_needed
   });
 
-  
+
   }
 
 
 render() {
-    
+
     const { name, weight, height, gender, calories_needed } = this.state;
     const BMI = this.state.BMI
     const ID = this.state.ID
     const { postData } = this.props;
-    
+
     return (
       <div>
       <div>
@@ -137,8 +137,8 @@ render() {
            value={gender}
            onChange={this.handleInput}
            >
-           <option value="female">female</option>
            <option value="male">male</option>
+           <option value="female">female</option>
          </select>
         <br />
          <button onClick={ this.handleSubmit } >Submit</button>
@@ -152,30 +152,3 @@ render() {
 }
 
 export default BMI;
-       
-       /*
-        <br />
-        <select
-        name="category"
-        value={category}
-        onChange={this.handleInput}
-        >
-          <option value="utilities">utilities</option>
-          <option value="food">food</option>
-          <option value="edsfucation">education</option>
-          <option value="rent/housing">rent/housing</option>
-          <option value="health/beauty">health/beauty</option>
-          <option value="savings">savings</option>
-          <option value="debt">debt</option>
-          <option value="transportation">transportation</option>
-          <option value="entertainment">entertainment</option>
-          <option value="miscellaneous">miscellaneous</option>
-        </select>
-        <button
-          onClick={this.handleSubmit}
-        >Submit</button>
-      </div>
-      );
-    }
-
-    */
