@@ -43,6 +43,20 @@ module.exports.postMyData = function (name, weight, height, gender, BMI, calorie
   )
 }
 
+module.exports.postMyDataCaloriesEaten = function (calories_eaten, cb) {
+  connection.query(
+    'INSERT INTO userInfo (calories_eaten) VALUES (?);',
+    [calories_eaten],
+    (error, results) => {
+      if (error) {
+        cb(error)
+      } else {
+        cb(results)
+      }
+    }
+  )
+}
+
 module.exports.getMyCaloriesNeeded = cb => {
   connection.query('SELECT calories_needed FROM userInfo ORDER BY id DESC LIMIT 1', (error, resultsCaloriesNeeded) => {
     if (error) {
@@ -54,21 +68,13 @@ module.exports.getMyCaloriesNeeded = cb => {
   })
 }
 
-/*
-//Example mysql query using Promises
-const sampleQuery = function() {
-  return new Promise((resolve, reject) => {
-    connection.query('SELECT * FROM table', (err, data) => {
-      if (err) {
-        return reject(err);
-      }
-      return resolve(data);
-    });
-  });
-};
-
-module.exports = {
-  sampleQuery,
-};
-
-*/
+module.exports.getMyCaloriesEaten = cb => {
+  connection.query('SELECT calories_eaten FROM userInfo ORDER BY id DESC LIMIT 1', (error, resultsCaloriesEaten) => {
+    if (error) {
+      throw error
+    } else {
+      console.log('this is from mysql query', resultsCaloriesEaten)
+      cb(resultsCaloriesEaten)
+    }
+  })
+}
