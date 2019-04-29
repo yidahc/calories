@@ -1,14 +1,15 @@
-/*
 import React from 'react'
 
-const Hints = (props) => {
-  const options = props.results.map(r => (
-    <li key={r.id}>
-      {r.name}
-    </li>
-  ))
-  return <ul>{options}</ul>
+
+const Hints = ({results, handleClick}) => {
+  return(
+    <div>
+      <ul className="font">
+  {results.map((item, i) => (<li key={i} onClick={()=>handleClick(i)} >{item[0]}</li>
+  ))}
+      </ul>
+    </div>
+  )
 }
 
-export default Hints
-*/
+export default Hints;

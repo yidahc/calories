@@ -1,4 +1,5 @@
 const app = require('./config.js')
+const path = require('path')
 
 const db = require('../database/mysql.js')
 
@@ -8,6 +9,15 @@ the two arguments that these requests take are
 which is the functions your server uses to get and post data to your database)
 */
 // HTTP Requests go here
+// react-router fallback so we can reload without visiting root
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, '/../client/dist/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
+
 app.get('/userInfo', getThisData)
 app.post('/userInfo', postThisData)
 app.post('/userInfoCaloriesEaten', postThisDataCaloriesEaten)

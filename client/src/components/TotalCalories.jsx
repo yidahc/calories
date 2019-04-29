@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Header from './Header.jsx'
-import App from '../App.jsx'
+import FoodSearch from './FoodSearch.jsx';
 
 class TotalCalories extends Component {
   constructor (props) {
@@ -45,7 +45,7 @@ class TotalCalories extends Component {
     const { calories_needed, calories_eaten } = this.state
     var obj = calories_needed[0]
     var int
-    console.log('working' + calories_needed[0])
+    console.log("working" + calories_needed[0])
     for (var i in obj) {
       if (i === 'calories_needed') {
         int = obj[i]
@@ -56,6 +56,7 @@ class TotalCalories extends Component {
         <Header />
         <h1>Calories Needed: {int}</h1>
         <h1>Calories Eaten: {calories_eaten}</h1>
+        <FoodSearch postData={this.props.postData} getAllCals={this.componentDidMount}/>
       </div>
     )
   }
