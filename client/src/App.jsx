@@ -68,8 +68,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/BMI' render={(props) => <BMI {...props} postData={this.postData} />} />
-            <Route exact path='/TotalCalories' component={TotalCalories} />
-            <Route exact path='/FoodSearch' render={(props) => <FoodSearch {...props} postData={this.postData} />} />
+            <Route exact path='/TotalCalories' postData={this.postData} component={TotalCalories} />
           </Switch>
         </div>
       </BrowserRouter>

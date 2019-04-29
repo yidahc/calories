@@ -88,10 +88,8 @@ handleSubmit(e) {
 
 render() {
 
-    const { name, weight, height, gender, calories_needed } = this.state;
-    const BMI = this.state.BMI
+    const { name, weight, height, gender } = this.state;
     const ID = this.state.ID
-    const { postData } = this.props;
 
     return (
       <div>
