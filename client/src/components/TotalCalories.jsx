@@ -22,8 +22,12 @@ class TotalCalories extends Component {
     return fetch(url)
       .then(response => response.json())
       .then(dataCaloriesNeeded => {
+        var obj = dataCaloriesNeeded
+        let int = obj[0].calories_needed;
+     console.log(int)
+     console.log(obj)
         this.setState({
-          calories_needed: dataCaloriesNeeded
+          calories_needed: int
         })
       })
       .catch(err => console.error(err))
@@ -43,18 +47,19 @@ class TotalCalories extends Component {
 
   render () {
     const { calories_needed, calories_eaten } = this.state
-    var obj = calories_needed[0]
+    // receiving calories needed as json object, parsing to string to be able to console.log
+    /*var obj = JSON.stringify(calories_needed)
     var int
-    console.log("working" + calories_needed[0])
+    console.log("working" + obj)
     for (var i in obj) {
       if (i === 'calories_needed') {
         int = obj[i]
       }
-    }
+    }*/
     return (
       <div>
         <Header />
-        <h1>Calories Needed: {int}</h1>
+        <h1>Calories Needed: {calories_needed}</h1>
         <h1>Calories Eaten: {calories_eaten}</h1>
         <FoodSearch postData={this.props.postData} getAllCals={this.componentDidMount}/>
       </div>

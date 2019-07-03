@@ -66,9 +66,9 @@ handleSubmit(e) {
   var BMI = this.calculateBMI(height, weight);
   this.identifyingClient(BMI);
   this.setState({
-    BMI: BMI
+    BMI: BMI,
   });
-    if (gender === "male") {
+    if (gender === "male" ) {
       calories_needed = 2500;
     } else {
         calories_needed = 2000;
@@ -80,7 +80,11 @@ handleSubmit(e) {
     gender: gender,
     BMI: BMI,
     calories_needed: calories_needed
-  });
+  }).then(this.setState ({
+    name: " ",
+    weight: " ",
+    height: " ",
+  }))
 
 
   }
@@ -95,14 +99,12 @@ render() {
       <div>
       <div>
 
-     // CSS Header
       <div class="columns level-right">
         <div class="column is-two-fifths">
           <Header />
         </div>
       </div>
 
-        // CSS BMI info submit
       <section class="section">
         <div class="field" class="columns">
           <div class="column is-one-quarter">

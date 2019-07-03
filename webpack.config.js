@@ -1,6 +1,10 @@
 const path = require('path');
 
-module.exports = {
+
+module.exports = (env) => {
+  const isProduction = env === "production";
+
+  return {
   entry: ['./client/src/Index.js'],
   output: {
     filename: 'bundle.js',
@@ -30,4 +34,6 @@ module.exports = {
     // respond to 404s with index.html
     inline: true,
   },
+  devtool: isProduction ? "source-map" : "cheap-module-eval-source-map"
+  }
 };

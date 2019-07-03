@@ -27,13 +27,13 @@ class FoodSearch extends Component {
   }
 
   handleInput = () => {
+  //  var { query, results } = this.state;
     this.setState({
       query: this.search.value
-    })
-    if (this.state.query.length >= 2) {
-      (this.getInfo(this.state.query));
-    } 
-  } 
+    });
+    this.getInfo(this.state.query)
+  }
+
   /* else if (this.state.query === '') {
       this.setState ({
         results: ['Click on the desired food to add calories', ]
@@ -61,10 +61,12 @@ class FoodSearch extends Component {
   var ing = this.findAndReplace(ingredient, " ", "%20");
     return axios.get(`${apiURL}${ing}${apiKey}`)
     .then(({ data }) => {
-        let suggestions= [];
+        let suggestions= [...this.state.results]
+        // array and objects must be spread so that the state is not affected directly
         data.hints.map(e => {
+          if (e.food.label.includes(ingredient)) {
           suggestions.push([e.food.label, e.food.nutrients.ENERC_KCAL]); 
-        })
+        }})
         this.setState({ 
           results: suggestions
         })
